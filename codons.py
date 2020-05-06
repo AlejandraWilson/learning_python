@@ -5,12 +5,13 @@
 
 dna = 'ATAGCGAATATCTCTCATGAGAGGGAA'
 
-k = 3
-for i in range(0, len(dna), -k+1):
-	kmer = dna[i:i+k]
-	print(kmer)
-
-
+w = 3
+#print(dna)
+for i in range(len(dna)-w+1):
+	codon = dna[i:i+w]
+	if (i+3) %3 == 0:
+		print(codon)
+		
 
 """
 ATA
