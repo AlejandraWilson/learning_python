@@ -3,21 +3,26 @@
 # Write a program that computes the GC fraction of a DNA sequence in a window
 # Window size is 11 nt
 # Output with 4 significant figures using whichever method you prefer
+# Use nested loops
 
 seq = 'ACGACGCAGGAGGAGAGTTTCAGAGATCACGAATACATCCATATTACCCAGAGAGAG'
-w = 11 #we want a window of 11 nucleotides. 
-p=0
-#Saying "w = 11" just saves us some time from having to write out 11 each time 
-#Also,now we can sub in different window sizes if we want.
-for nt in range(0, len(seq)-w+1): #nt denotes "nucleotide".
-	kmer = seq[nt:nt+w] #setting the side of the window, the "kmer", as 11 nucleotides.
-	gc_count = 0 #Makes sure your gc_count starts over with each window
-	for n in kmer:  #n denotes a nucleotide specifically in the window "kmer"
-		if n == 'G' or n == 'C':
-			gc_count += 1
-	p = gc_count / w #p stands for "GC percentage"
-	print(nt, kmer, '%.4f' % (p))
+w = 11
+gc = 0
+#need to start the gc percentage off at zero to give you a place to start
 
+for i in range(0, len(seq)-w+1):
+#i denotes a number
+	count = 0
+#need the count to start over at 0 for each window (otherise it'll keep adding up)
+	kmer = seq[i:i+w]
+#defining the size of the kmer
+	for nt in kmer:
+#nt denotes a character in the string
+		if nt == 'G' or nt == 'C': count +=1
+	gc = count/w
+#calculates the gc fraction in a window of size w
+	print('%d %s %.4f' % (i, kmer, gc))
+#gets the printed answer looking pretty
 
 
 """
