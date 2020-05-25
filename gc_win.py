@@ -5,8 +5,33 @@
 # Output with 4 significant figures using whichever method you prefer
 # Use nested loops
 
-seq = 'ACGACGCAGGAGGAGAGTTTCAGAGATCACGAATACATCCATATTACCCAGAGAGAG'
-w = 11
+sequence = 'ACGACGCAGGAGGAGAGTTTCAGAGATCACGAATACATCCATATTACCCAGAGAGAG'
+#w = 11
+
+#experiment: writing it as a function now
+def gc(seq):
+
+	for nt in seq:
+		count = 0
+		if nt == 'G' or nt == 'C':
+			count +=1
+		return count/(len(seq))
+
+for i in range(0, len(sequence)-w+1):
+	print(i, seq[i:i+w], gc(seq[i:i+w]))
+	#seq = sequence[i:i+w]
+	#defining the size of the window for the program
+
+	#print(i, s, gc(s,)
+
+
+
+
+
+
+
+
+"""
 gc = 0
 #need to start the gc percentage off at zero to give you a place to start
 
@@ -25,7 +50,7 @@ for i in range(0, len(seq)-w+1):
 #gets the printed answer looking pretty
 
 
-"""
+
 0 ACGACGCAGGA 0.6364
 1 CGACGCAGGAG 0.7273
 2 GACGCAGGAGG 0.7273
